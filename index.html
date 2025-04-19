@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            width: 50%;
+            max-width: 900px;
+            background: #333;
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            border-radius: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 80px; /* To ensure content does not overlap with fixed header */
+            width: 100%;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            grid-template-rows: repeat(2, auto); /* 2 rows */
+            gap: 20px;
+            margin-top: 20px;
+            width: 80%;
+            justify-content: center;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        /* Responsive for smaller screens */
+        @media (max-width: 1024px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns */
+                grid-template-rows: auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .products {
+                grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
+            }
+        }
+        /* Contact Info at Top Left */
+        .contact {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact img {
+            width: 100px;
+            border-radius: 10px;
+        }
+        .contact h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cloud Kitchen</h1>
+        <div class="cart">🛒 Cart (<span id="cart-count">0</span>)</div>
+    </header>
+    <main class="container">
+        <div class="contact">
+            <img src="https://imgs.search.brave.com/0rmwDLx6jSUdZwdwsiKWxpTgkJmomUBEEXVtRMZavZw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20vRUFHRFFO/S1RCdjQvMy8wLzE2/MDB3L2NhbnZhLWJy/b3duLWJlaWdlLWNp/cmNsZS1jaGluZXNl/LWZvb2QtbG9nby1j/QmRVUE1yM1kxTS5q/cGc" alt="☎️ +9572773901">
+            <h2 style="color: red; background-color: white;">☎️ +9572773901</h2>
+        </div>
+        <div class="products">
+            <div class="product">
+                <img src="https://imgs.search.brave.com/rKh0O8rbonm1PugVaan2IuiQxJAxoxZ1kN-M9ACOxnY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA5Lzg5LzU5LzA1/LzM2MF9GXzk4OTU5/MDUyNV9tbjRNS3Fz/VU43NkNPQ1djSVdP/aUdxa0JmN3M2dnFk/ZS5qcGc" alt="Biryani">
+                <h2>Biryani</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Half (Rs 150)</option>
+                        <option value="option2">Full (Rs 250)</option>
+                      </select>
+                    </li>
+                  </ul>
+                  
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/Hc-08J9Pv8HRSF5yuzLrtZe9lt644buYD1_68wsFuBw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20vSk0xQ3Mv/TUFFSkhMSk0xQ3Mv/MS90bC9jYW52YS1w/aXp6YS1NQUVKSExK/TTFDcy5qcGc" alt="Pizza">
+                <h2>Pizza</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Onion (Rs 60)</option>
+                        <option value="option2">Corn (Rs 80)</option>
+                        <option value="option3">Cheese (RS 100)</option>
+                        <option value="option3">Volcano (Rs 150)</option>
+                      </select>
+                    </li>
+                  </ul>
+                  
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/cu_By3nPCLaO6o2wataGbcVE9GnxJ2LnzARBPZMq3-U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2E2L0hvbWVtYWRl/X0Nob3dfbWVpbl93/aXRoX3NocmltcHNf/YW5kX21lYXRfd2l0/aF9hX2Nob3lfYW5k/X0Nob3VuZy5qcGc" alt="Chowmein">
+                <h2>Chowmein</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Half Rs 100</option>
+                        <option value="option2">Full Rs 180</option>
+                      </select>
+                    </li>
+                  </ul>
+                <button class="add-to-cart">Add to Cart
+                    <style>
+                        .add-to-cart {
+                          background-color: blue;
+                          color: white;
+                          padding: 10px 20px;
+                          border: none;
+                          border-radius: 5px;
+                          cursor: pointer;
+                        }
+                      
+                        .my-button:hover {
+                          background-color: darkblue;
+                        }
+                      </style>
+                </button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/YfWQ1Ex-B1ftcd0qDCnsFD9fbNDyUCLb7YEhMBQxePQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzMwLzAzLzAz/LzM2MF9GXzQzMDAz/MDMzMl9kRUlTYmdR/VHhwS3JsVkN4WE5W/YTFoeGxGRWJrbHNm/RS5qcGc" alt="Dosa">
+                <h2>Dosa</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Half Rs 80</option>
+                        <option value="option2">Full Rs 150</option>
+                      </select>
+                    </li>
+                  </ul>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/eAdoK84hsoU4n21Gpw3lPYEUqFVZmB6L0Sd5TD6fIQE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aW5kaWFuaGVhbHRo/eXJlY2lwZXMuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzA3L3ZlZy1tYW5j/aHVyaWFuLndlYnA" alt="Manchurian">
+                <h2>Manchurian</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Half Rs 120</option>
+                        <option value="option2">Full Rs 200</option>
+                      </select>
+                    </li>
+                  </ul>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/tTGiqxPvJy6ywfoiKrpq38O1o1Xv2Q6pNEtYQl6rvVM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzEyLzM1Lzcy/LzM2MF9GXzEwMTIz/NTcyMzRfV0t3ZEdP/OXlndG1WeW5VMjdG/Z2NyRTg4SEthU3BQ/WG0uanBn" alt="Matar Panner">
+                <h2>Matar Paneer</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">300 ml Rs 140</option>
+                        <option value="option2">600 ml Rs 250</option>
+                      </select>
+                    </li>
+                  </ul>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/TmK5hCOWwHZmx7v5fUsJQoGHz32NQYhX-IMbe8MURQM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbmRp/c2hpb3VzLmNvbS9f/YXN0cm8vNTVhZDcz/MDgtOWY3MS00MDQx/LTk4YTMtM2UxZjNk/NWRjZGNlX3Jham1h/LWNoYXdhbF8yYk95/RWIuanBlZw" alt="Rajma Chawal">
+                <h2>Rajma Chawal</h2>
+                <ul>
+                    <li>
+                        Please select:
+                      <select>
+                        <option value="option1">Half Rs 40</option>
+                        <option value="option2">Full Rs 60</option>
+                      </select>
+                    </li>
+                  </ul>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://imgs.search.brave.com/RbqUgnkCNI1pYxSpQj26tf4CpQouIUJ-8VVBnyRGk00/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTAx/OTYzNTg3L3Bob3Rv/L2J1cmdlci1jaGVl/c2UuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPXlnTlQwd1lz/MUFILVlsbjI4aU9i/cU5ocUgyWkhwcHda/OHBsbnpjMmpXbW89" alt="Burger">
+                <h2>Burger</h2>
+                <p>Rs 80</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        let cartCount = 0;
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                document.getElementById('cart-count').innerText = cartCount;
+            });
+        });
+    </script>
+</body>
+</html>
